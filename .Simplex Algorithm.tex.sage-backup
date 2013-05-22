@@ -1,0 +1,91 @@
+\documentclass{article}
+	\usepackage{amsmath,amsthm,latexsym,amssymb,graphicx}
+	\input{commands}
+	\title{The Simplex Algorithm}
+	\date{May 21, 2011}
+	\author{Andrea Gagliano}
+	\newtheorem*{problem}{Problem}
+	\newtheorem*{definition}{Definition}
+	\newtheorem*{example}{Example}
+
+	
+\begin{document}
+	\maketitle	
+
+	\section{Introduction}
+		
+		An optimization problem is one where there is an equation that needs to be maximized or 	minimized, with constraints on the variables that limit the possible solutions. The standard form of an optimization problem is called a Linear Program, $LP$. The standard form has a linear objective function and linear constraints. All constraint equations are re-written to be less than or equal to. All variables are re-written to be greater than or equal to zero.
+
+		\begin{example} 
+		$LP$
+		\begin{equation*} 
+		\begin{aligned}
+		& \text{maximize}
+		& & 3x_1 + 4x_2 - 5x_3 + 13x_4 \\
+		& \text{subject to}
+		& & 5x_1 + 6x_2 \le 17 \\
+		&&& 3x_1 - 8x_4 \le -5 \\
+		&&& x \ge 0 \text{ for all $x$}.
+		\end{aligned}
+		\end{equation*}
+		\end{example}
+
+		\begin{example} 
+		General form of $LP$
+		\begin{equation*} 
+		\begin{aligned}
+		& \text{maximize}
+		&& c^Tx \\
+		& \text{subject to}
+		& & Ax \le b \\
+		&&& x \ge 0 \text{ for all $x$}.
+		\end{aligned}
+		\end{equation*}
+		\end{example}
+
+	Optimization problems have many real world applications. Finance, resource allocation, transportation, scheduling, and production planning are every day problems that frequently are formed as $LP$s. 
+
+	Once an LP is determined, it can be either solved, or determined infeasible. The remainder of this paper discusses the process to solve a standard $LP$, including code implementation, starting with the initial set up in \ref{Initial Tableau}, the feasibility in \ref{Feasibility}, and the simplex algorithm in \ref{Simplex Algorithm}. The paper concludes with examples of outputs.
+
+
+	\section{Implementing the Simplex Algorithm} 
+		\subsection{Creating the Initial Tableau} \label{Initial Tableau}
+			Description goes here. 
+		\subsection{Checking for Feasibility}	\label{Feasibility}
+			Description and code.
+
+			\begin{definition} Definition of feasibility goes here.
+			\end{definition}
+
+			\begin{definition} Definition of the dual goes here.
+			\end{definition}
+
+		\subsection{The Simplex Algorithm}	\label{Simplex Algorithm}
+			After checking for feasibility of the initial tableau, the simplex algorithm can be initiated. Conducting the following steps will always eventually terminate and ellicit an optimal value and solution. (still need to introduce concept of a basis).
+			\begin{enumerate}
+				\item{Choose column with highest objective value in the objective row of the tableau (this is the bottom row).}
+				\item{Calculate the ratios of $b^T$ over the corresponding column of $A$.}
+				\item{Choose the row that corresponds to the lowest ratio.} 
+				\item{This is the value that we will pivot on.}
+				\item{Pivot by using row reducing to make this value a 1, and the other values in the column zeros. Essentially create an identity column.}
+				\item{Repeat steps 1 through 5 until all the values of the objective row (bottom row of tableau) are negative.}
+				\item{The bottom right cell of the final tableau is the negative of the maximal value. The solution is the variables that are in the basis and their corresponding values on the far right hand column of the final tableau.}
+			\end{enumerate}
+			
+			
+
+		\subsection{Output}
+			\begin{enumerate}
+				\item{Optimal value:}
+				\item{Optimal solution:}
+				\item{Graphical representation if 2D:}
+				\item{Step by step instructions including tableaus:}
+			\end{enumerate}
+	\section{Examples}
+		Example output will be shown here. 
+	\section{Conclusion}
+		Conclusion will go here.
+	
+	
+
+\end{document}
